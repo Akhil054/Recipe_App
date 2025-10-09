@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card,Col } from 'react-bootstrap';
+import '../styles/CircularCard.css';
 
 
 const CircularCard = ({image, name}) => {

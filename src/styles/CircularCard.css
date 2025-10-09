@@ -9,7 +9,7 @@
 }
 
 .category-card-image{
-   width: 150px;       /* Fixed width */
+  width: 150px;       /* Fixed width */
   height: 150px;      /* Fixed height */
   border-radius: 50%; /* Makes the image a perfect circle */
   object-fit: cover;  /* Ensures the image covers the area without distortion */
