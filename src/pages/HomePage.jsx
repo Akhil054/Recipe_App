@@ -3,11 +3,15 @@ import CircularCard from '../components/CircularCard';
 import { Container , Row} from 'react-bootstrap';
 import collabs from '../Data/Collabs.js';
 import category from '../Data/Category.js';
+import HCard from '../Data/HCard.js';
+import '../styles/HomePage.css';
 
 import Cards from '../components/Cards';
 
 // importing images directly
 import Burger from '../assets/burgirr.jpg';
+import Footer from './Footer.jsx';
+import HorizontalCard from '../components/HorizontalCard.jsx';
 
 const categories = [
     {
@@ -33,6 +37,7 @@ const categories = [
 const HomePage = () => {
   return (
     <Container className="my-5">
+
       <h2 className='mb-4'>Our Varieties</h2>
 
       <Row>
@@ -45,21 +50,28 @@ const HomePage = () => {
         ))}
       </Row>
 
+      {/* <section className="Collabs-sec">
+        <h2 className='mb-4'>Our Collabs</h2>
+      
+        <div className="Horizontal-scroll-container">
 
-      <h2 className='mb-4'>Our Collabs</h2>
-      <Row>
-        {collabs.map((collabs) => (
-          <CircularCard
-            key={collabs.name}
-            name={collabs.name}
-            image={collabs.image}
-          />
-        ))}
-      </Row>
+         <div className="card-wrapper">
+            {collabs.map((collabs) => (
+              <CircularCard
+                key={collabs.name}
+                name={collabs.name}
+                image={collabs.image}
+              />
+            ))}
+          </div>
+
+        </div>
+
+      </section> */}
 
 
 
-      <h2 className='mb-4 mt-5'>Popular Recipes</h2>
+    <h2 className='mb-4 mt-5'>Popular Recipes</h2>
 
       <Row>
         {category.map((category) => (
@@ -72,9 +84,50 @@ const HomePage = () => {
           />
         ))}
       </Row>
+      <Row>
+        {category.map((category) => (
+          <Cards
+            key={category.name}
+            name={category.name}
+            image={category.image}
+            category={category.category}
+            price={category.price}
+          />
+        ))}
+      </Row>
+      <Row>
+        {category.map((category) => (
+          <Cards
+            key={category.name}
+            name={category.name}
+            image={category.image}
+            category={category.category}
+            price={category.price}
+          />
+        ))}
+      </Row>
 
+    <section className="my-6" style={{ backgroundColor: '#f8f9fa', padding: '20px', borderRadius: '8px' }}>
+
+    <h2 className='mb-4 mt-3'>Explore Options </h2>
+
+    {HCard.map((item, idx) => (
+      <HorizontalCard 
+        key={idx}
+        title={item.title}
+        content={item.content}
+      />
+    ))}
+    
+    </section>
+    
+    <br/>
+
+    <Footer/>
 
     </Container>
+
+
   )
 }
 export default HomePage;
