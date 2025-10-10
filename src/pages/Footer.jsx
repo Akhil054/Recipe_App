@@ -1,134 +1,95 @@
+// Footer.jsx
 import React from "react";
-import { Container, Row, Col, Dropdown } from "react-bootstrap";
-// import {
-//   FaInstagram,
-//   FaLinkedin,
-//   FaXTwitter,
-//   FaYoutube,
-//   FaFacebook,
-//   FaGlobe,
-// } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-light text-dark pt-5 pb-3 border-top mt-5">
-      <Container>
-        <Row className="align-items-start mb-4">
-          {/* Logo */}
-          <Col md={2} className="mb-3">
-            <h3 className="fw-bold">zomato</h3>
-          </Col>
+    <footer className="text-center text-lg-start bg-body-tertiary text-muted">
+      {/* Section: Social media */}
+      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        {/* Left */}
+        <div className="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        {/* Left */}
 
-          {/* Country and Language */}
-          <Col
-            md={{ span: 2, offset: 8 }}
-            className="d-flex justify-content-end gap-2"
-          >
-            <Dropdown>
-              <Dropdown.Toggle variant="outline-secondary" size="sm">
-                India
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item>USA</Dropdown.Item>
-                <Dropdown.Item>UK</Dropdown.Item>
-                <Dropdown.Item>Canada</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+        {/* Right */}
+        <div>
+          <a href="#" className="me-4 text-reset">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" className="me-4 text-reset">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="#" className="me-4 text-reset">
+            <i className="fab fa-google"></i>
+          </a>
+          <a href="#" className="me-4 text-reset">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="#" className="me-4 text-reset">
+            <i className="fab fa-linkedin"></i>
+          </a>
+          <a href="#" className="me-4 text-reset">
+            <i className="fab fa-github"></i>
+          </a>
+        </div>
+        {/* Right */}
+      </section>
+      {/* Section: Social media */}
 
-            <Dropdown>
-              <Dropdown.Toggle variant="outline-secondary" size="sm">
-                English
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item>English</Dropdown.Item>
-                <Dropdown.Item>Hindi</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Col>
-        </Row>
-
-        <Row className="mt-4">
-          {/* ABOUT ZOMATO */}
-          <Col md={2} sm={6} className="mb-3">
-            <h6 className="fw-bold">ABOUT ZOMATO</h6>
-            <ul className="list-unstyled small">
-              <li>Who We Are</li>
-              <li>Blog</li>
-              <li>Work With Us</li>
-              <li>Investor Relations</li>
-              <li>Report Fraud</li>
-              <li>Press Kit</li>
-              <li>Contact Us</li>
-            </ul>
-          </Col>
-
-          {/* ZOMAVERSE */}
-          <Col md={2} sm={6} className="mb-3">
-            <h6 className="fw-bold">ZOMAVERSE</h6>
-            <ul className="list-unstyled small">
-              <li>Zomato</li>
-              <li>Blinkit</li>
-              <li>Feeding India</li>
-              <li>Hyperpure</li>
-              <li>Zomaland</li>
-            </ul>
-          </Col>
-
-          {/* FOR RESTAURANTS */}
-          <Col md={2} sm={6} className="mb-3">
-            <h6 className="fw-bold">FOR RESTAURANTS</h6>
-            <ul className="list-unstyled small">
-              <li>Partner With Us</li>
-              <li>Apps For You</li>
-            </ul>
-          </Col>
-
-          {/* LEARN MORE */}
-          <Col md={2} sm={6} className="mb-3">
-            <h6 className="fw-bold">LEARN MORE</h6>
-            <ul className="list-unstyled small">
-              <li>Privacy</li>
-              <li>Security</li>
-              <li>Terms</li>
-            </ul>
-          </Col>
-
-          {/* SOCIAL LINKS */}
-          <Col md={4} className="mb-3">
-            <h6 className="fw-bold">SOCIAL LINKS</h6>
-            <div className="d-flex gap-3 fs-5 mb-3">
-              <FaLinkedin />
-              <FaInstagram />
-              <FaXTwitter />
-              <FaYoutube />
-              <FaFacebook />
+      {/* Section: Links */}
+      <section>
+        <div className="container text-center text-md-start mt-5">
+          {/* Grid row */}
+          <div className="row mt-3">
+            {/* Grid column */}
+            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 className="text-uppercase fw-bold mb-4">
+                <i className="fas fa-gem me-3"></i>Foodie
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer content. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit.
+              </p>
             </div>
-            <div className="d-flex flex-column gap-2">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29_logo.svg"
-                alt="App Store"
-                width="120"
-              />
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                alt="Google Play"
-                width="130"
-              />
-            </div>
-          </Col>
-        </Row>
 
-        {/* Footer Bottom */}
-        <hr />
-        <Row>
-          <Col className="text-center small text-muted">
-            By continuing past this page, you agree to our Terms of Service,
-            Cookie Policy, Privacy Policy and Content Policies. All trademarks
-            are properties of their respective owners. © 2025 Zomato™ Ltd. All
-            rights reserved.
-          </Col>
-        </Row>
-      </Container>
+            {/* Grid column */}
+            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+              <p><a href="#!" className="text-reset">Angular</a></p>
+              <p><a href="#!" className="text-reset">React</a></p>
+              <p><a href="#!" className="text-reset">Vue</a></p>
+              <p><a href="#!" className="text-reset">Laravel</a></p>
+            </div>
+
+            {/* Grid column */}
+            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
+              <p><a href="#!" className="text-reset">Pricing</a></p>
+              <p><a href="#!" className="text-reset">Settings</a></p>
+              <p><a href="#!" className="text-reset">Orders</a></p>
+              <p><a href="#!" className="text-reset">Help</a></p>
+            </div>
+
+            {/* Grid column */}
+            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+              <p><i className="fas fa-home me-3"></i> New York, NY 10012, US</p>
+              <p><i className="fas fa-envelope me-3"></i> info@example.com</p>
+              <p><i className="fas fa-phone me-3"></i> + 01 234 567 88</p>
+              <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p>
+            </div>
+          </div>
+          {/* Grid row */}
+        </div>
+      </section>
+      {/* Section: Links */}
+
+      {/* Copyright */}
+      <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
+        © 2021 Copyright: 
+        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">Foodie</a>
+      </div>
     </footer>
   );
 };

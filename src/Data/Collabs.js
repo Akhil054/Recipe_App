@@ -17,6 +17,16 @@ const collabs = [
     name: "Domino's",
     image: Dominos,
   },
+  {
+    name: "Domino's",
+    image: Dominos,
+  },{
+    name: "Domino's",
+    image: Dominos,
+  },{
+    name: "Domino's",
+    image: Dominos,
+  },
 ];
 
 export default collabs;
