@@ -15,6 +15,7 @@ function App() {
         <Container className="mt-4"> {/* Add a container for page content */}
         <Routes>
           <Route path='/' element={<HomePage/>} />
+          
           {/* <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} /> */}
         </Routes>

@@ -3,6 +3,11 @@
 import KFC from '../assets/kfc.jpg';
 import McD from '../assets/McD.jpeg';
 import Dominos from '../assets/dominos.png';
+import StarBucks from '../assets/StarBucks.jpg';
+import Subway from '../assets/Subway.jpg';
+import BurgerKing from '../assets/BurgerKing.jpg';
+import VeganBites from '../assets/VeganBites.jpg';
+
 
 const collabs = [
   {
@@ -14,18 +19,18 @@ const collabs = [
     image: McD,
   },
   {
-    name: "Domino's",
-    image: Dominos,
+    name: "Subway",
+    image: Subway,
   },
   {
-    name: "Domino's",
-    image: Dominos,
+    name: "Burger King",
+    image: BurgerKing,
   },{
-    name: "Domino's",
-    image: Dominos,
+    name: "Star Bucks",
+    image: StarBucks,
   },{
-    name: "Domino's",
-    image: Dominos,
+    name: "Vegan Bites",
+    image: VeganBites,
   },
 ];
 

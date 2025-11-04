@@ -1,0 +1,7 @@
+.filter-button {
+  margin: 0 0.5rem;
+  border-width: 2px !important;
+  font-weight: 500 !important;
+  min-width: 120px; /* Gives the buttons a uniform minimum width */
+  
+}

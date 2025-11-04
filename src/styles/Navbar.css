@@ -1,0 +1,21 @@
+/* /src/components/Navbar.css */
+.app-navbar {
+  padding: 1rem 0;
+  background-color: var(--background-color) !important;
+}
+
+.navbar-brand-custom {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--secondary-color) !important;
+}
+
+.app-navbar .nav-link {
+  font-weight: 500;
+  margin: 0 1rem;
+  color: var(--secondary-color) !important;
+}
+
+.app-navbar .nav-link:hover {
+  color: var(--primary-color) !important;
+}

@@ -11,7 +11,7 @@
 .category-card-image{
   width: 150px;       /* Fixed width */
   height: 150px;      /* Fixed height */
-  border-radius: 50%; /* Makes the image a perfect circle */
+   /* Makes the image a perfect circle */
   object-fit: cover;  /* Ensures the image covers the area without distortion */
   margin: 0 auto;     /* Centers the image horizontally */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */

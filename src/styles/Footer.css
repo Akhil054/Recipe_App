@@ -1,0 +1,75 @@
+/* /src/styles/Footer.css */
+.app-footer {
+  background-color: #fffaf0; /* A very light cream, slightly different from the body */
+}
+
+.footer-title {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.subscribe-form {
+  position: relative;
+  max-width: 400px;
+  margin: 2rem auto 0;
+}
+
+.subscribe-input {
+  border-radius: 50px !important;
+  padding: 15px 25px !important;
+  border: 1px solid #ddd !important;
+  height: auto !important;
+}
+
+.subscribe-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50% !important;
+  width: 45px;
+  height: 45px;
+  padding: 0 !important;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.footer-brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.footer-heading {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.app-footer .list-unstyled a {
+  text-decoration: none;
+  color: #6c757d;
+  line-height: 2.2;
+  transition: color 0.2s ease;
+}
+
+.app-footer .list-unstyled a:hover {
+  color: var(--primary-color);
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  color: var(--secondary-color);
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-3px);
+}

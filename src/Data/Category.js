@@ -1,4 +1,6 @@
-import Chicken from '../assets/Chicken-Tikka.jpg';
+import Chicken from '../assets/ChickenTikka.jpg';
+import ChickenTikka from '../assets/ChickenTikka.jpg';
+import MuttonCurry from '../assets/ChickenTikka.jpg';
 
 const category = [
 
@@ -10,14 +12,14 @@ const category = [
   },
   {
     name : "Mutton",
-    image : Chicken,
+    image : MuttonCurry,
     category : "Non-Veg", 
     price : "250"
    
   },
   {
     name : "Paneer",
-    image : Chicken,
+    image : ChickenTikka,
     category : "Veg",
     price : "250"    
   },

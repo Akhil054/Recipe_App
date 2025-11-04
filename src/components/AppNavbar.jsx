@@ -1,34 +1,31 @@
-import React from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; // Use Link for client-side routing
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
-import SearchBar from './SearchBar';
-
+// /src/components/Navbar.jsx
+import React from 'react';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import '../styles/Navbar.css';
 
 const AppNavbar = () => {
   return (
-    <div>
-        <Navbar bg="dark" variant="dark" expand="lg">
-          <Container>
-            <Navbar.Brand as={Link} to="/">Recipe App</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link as={Link} to="/">HomePage</Nav.Link>
-                <SearchBar/>
-                <Nav.Link as={Link} to="/">Contact Us </Nav.Link>
-                <Nav.Link as={Link} to="/">My Orders </Nav.Link>
-                
-                {/* <Nav.Link as={Link} to="/login">Login</Nav.Link>        
-                <Nav.Link as={Link} to="/register">Register</Nav.Link> */}
-                </Nav>
-                </Navbar.Collapse> 
-            </Container>
-        </Navbar>
-        
-    </div>
-  )
-}
+    <Navbar bg="light" variant="light" expand="lg" className="app-navbar">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
+          {/* You can use an icon or text here */}
+          🍴 Bites
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mx-auto"> {/* mx-auto centers the links */}
+            <Nav.Link as={Link} to="/about">About Us</Nav.Link>
+            <Nav.Link as={Link} to="/menu">Menu</Nav.Link>
+            <Nav.Link as={Link} to="/reviews">Reviews</Nav.Link>
+            <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+            <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>
+          </Nav>
+          <Button variant="primary">Reserve Table</Button>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
 export default AppNavbar;

@@ -1,0 +1,39 @@
+.dish-card {
+  background-color: var(--white);
+  border-radius: 20px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dish-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dish-card-image {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.dish-card-title {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.dish-card-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+  flex-grow: 1; /* Allows the card body to push the price down */
+}
+
+.dish-card-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.dish-card .btn {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
