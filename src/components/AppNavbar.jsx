@@ -28,9 +28,9 @@ const AppNavbar = () => {
             <Button variant="primary" as={Link} to="/cart" className="position-relative border-0 shadow-sm" style={{ padding: '0.6rem' }}>
               <FaShoppingCart size={20} className="text-white" />
               {cartCount > 0 && (
-                <Badge 
-                  bg="danger" 
-                  pill 
+                <Badge
+                  bg="danger"
+                  pill
                   className="position-absolute translate-middle"
                   style={{ top: '5%', left: '95%' }}
                 >
