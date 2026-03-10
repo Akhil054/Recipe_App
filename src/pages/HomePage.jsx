@@ -1,201 +1,62 @@
-// import React from 'react'
-// import CircularCard from '../components/CircularCard';
-// import { Container , Row} from 'react-bootstrap';
-// import collabs from '../Data/Collabs.js';
-// import category from '../Data/Category.js';
-// import HCard from '../Data/HCard.js';
-// import HorizontalCard from '../components/HorizontalCard.jsx';
-// import '../styles/HomePage.css';
-
-
-// import Cards from '../components/DishCards.jsx';
-
-// // importing images directly
-// import Burger from '../assets/burgirr.jpg';
-// import Footer from './Footer.jsx';
-
-// const categories = [
-//     {
-//         name : "Pizza",
-//         image: Burger,
-//     },
-//     {
-//         name : "Burger",
-//         image: Burger,
-//     },
-//     {
-//         name : "Pasta",
-//         image: Burger,
-//     },
-//     {
-//         name : "Salad",
-//         image: Burger,
-//     }
-// ];
-
-
-
-// const HomePage = () => {
-//   return (
-//     <Container className="my-5">
-
-//       <h2 className='mb-4'>Our Varieties</h2>
-
-//       <Row>
-//         {categories.map((category) => (
-//           <CircularCard
-//             key={category.name}
-//             name={category.name}
-//             image={category.image}
-//           />
-//         ))}
-//       </Row>
-
-//       <section className="Collabs-sec">
-//         <h2 className='mb-4'>Our Collabs</h2>
-      
-//         <div className="Horizontal-scroll-container">
-
-//          <div className="card-wrapper">
-//             {collabs.map((collabs) => (
-//               <CircularCard
-//                 key={collabs.name}
-//                 name={collabs.name}
-//                 image={collabs.image}
-//               />
-//             ))}
-//           </div>
-
-//         </div>
-
-//       </section>
-
-
-
-//     <h2 className='mb-4 mt-5'>Popular Recipes</h2>
-
-//       <Row>
-//         {category.map((category) => (
-//           <Cards
-//             key={category.name}
-//             name={category.name}
-//             image={category.image}
-//             category={category.category}
-//             price={category.price}
-//           />
-//         ))}
-//       </Row>
-//       <Row>
-//         {category.map((category) => (
-//           <Cards
-//             key={category.name}
-//             name={category.name}
-//             image={category.image}
-//             category={category.category}
-//             price={category.price}
-//           />
-//         ))}
-//       </Row>
-//       <Row>
-//         {category.map((category) => (
-//           <Cards
-//             key={category.name}
-//             name={category.name}
-//             image={category.image}
-//             category={category.category}
-//             price={category.price}
-//           />
-//         ))}
-//       </Row>
-
-//     <section className="my-6" style={{ backgroundColor: '#f8f9fa', padding: '20px', borderRadius: '8px' }}>
-
-//     <h2 className='mb-4 mt-3'>Explore Options </h2>
-
-//     {HCard.map((item, idx) => (
-//       <HorizontalCard 
-//         key={idx}
-//         title={item.title}
-//         content={item.content}
-//       />
-//     ))}
-    
-//     </section>
-    
-//     <br/>
-
-//     <Footer/>
-
-//     </Container>
-
-
-//   )
-// }
-// export default HomePage;
-
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-import { useState, useEffect } from 'react'; 
-
-
-// Import your updated and restyled components
-import DishCard from '../components/DishCards.jsx'; // Assuming this is your restyled card
+// Components
+import DishCard from '../components/DishCards.jsx';
 import Footer from './Footer.jsx';
 import PartnerLogo from '../components/PartnerLogo.jsx';
 
-
-// Import your data - ensure it has the fields needed (image, name, price, category)
-import categoryData from '../Data/Category.js';
+// Data Imports
+import categoryData from '../Data/Category.js';   // For Popular Dishes
+import RegularMeal from '../Data/RegularMeal.js'; // For Regular Menu
 import collabs from '../Data/Collabs.js';
 
-
-
-// Import your hero image (place it in /src/assets/)
-import HeroSaladImage from '../assets/hero-salad.jpg'; 
-import ChefImage from '../assets/chef.jpg'; 
+// Images & Styles
+import HeroSaladImage from '../assets/hero-salad.jpg';
+import ChefImage from '../assets/chef.jpg';
 import '../styles/HomePage.css';
 import '../styles/main.css';
 
 const HomePage = () => {
   // --- STATE MANAGEMENT FOR MENU ---
-  // State to track the currently selected filter ('All', 'veg', or 'non-veg')
   const [activeFilter, setActiveFilter] = useState('All');
-  // State to hold the dishes that are currently displayed
-  const [filteredDishes, setFilteredDishes] = useState(categoryData);
+  const [filteredDishes, setFilteredDishes] = useState(RegularMeal);
 
-  // This effect runs whenever the `activeFilter` state changes
+  // --- FILTERING LOGIC ---
   useEffect(() => {
     if (activeFilter === 'All') {
-      setFilteredDishes(categoryData);
+      setFilteredDishes(RegularMeal);
     } else {
-      const filtered = categoryData.filter(dish => dish.type === activeFilter);
+      const filtered = RegularMeal.filter(dish => dish.type === activeFilter);
       setFilteredDishes(filtered);
     }
   }, [activeFilter]);
+
   return (
     <>
       {/* --- Hero Section --- */}
       <Container as="section" className="my-5 py-md-5">
-        <Row className="align-items-center">
-          <Col md={6} className="text-center text-md-start mb-5 mb-md-0">
-            <h1 className="display-3 fw-bold">
-              We Serve The Test<br />You Love 😍
+        <Row className="align-items-center flex-column-reverse flex-md-row">
+          <Col xs={12} md={6} className="text-center text-md-start mt-5 mt-md-0">
+            <h1 className="fw-bold mb-3 mb-md-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
+              We Serve The Taste<br className="d-none d-md-block" />You Love 😍
             </h1>
-            <p className="lead text-muted my-4">
+            <p className="lead text-muted my-4 fs-6 fs-md-5">
               This is a type of restaurant which typically serves food and drinks, in addition to light refreshments such as baked goods or snacks.
             </p>
-            <Button variant="primary" className="me-3">Explore Food</Button>
-            <Button variant="outline-primary">🔍 Search</Button>
+            <div className="d-grid d-sm-flex justify-content-sm-center justify-content-md-start gap-3 w-100" style={{ maxWidth: '400px', margin: '0 auto' }}>
+              <Button variant="primary" size="lg" className="px-sm-4 w-100 w-sm-auto">Explore Food</Button>
+              <Button variant="outline-primary" size="lg" className="px-sm-4 w-100 w-sm-auto">🔍 Search</Button>
+            </div>
           </Col>
-          <Col md={6}>
-            <Image src={HeroSaladImage} fluid />
+          <Col xs={12} md={6} className="text-center px-4 px-md-3">
+            <Image src={HeroSaladImage} fluid className="w-100" style={{ maxWidth: '450px' }} />
           </Col>
         </Row>
       </Container>
-      
-       {/* --- NEW: Our Partners Section --- */}
+
+      {/* --- Our Partners Section --- */}
       <Container as="section" className="my-5 text-center">
         <h2 className="fw-bold mb-5">Our Trusted Partners</h2>
         <div className="horizontal-scroll-container">
@@ -215,10 +76,10 @@ const HomePage = () => {
       <Container as="section" className="my-5 py-5">
         <h2 className="text-center fw-bold mb-5">Popular Dishes</h2>
         <Row>
-          {/* We map ONCE and slice the array to show a specific number of items */}
           {categoryData.slice(0, 4).map((dish, index) => (
             <DishCard
               key={index}
+              id={dish.id || `pop-${index}`}
               image={dish.image}
               name={dish.name}
               description={`A popular ${dish.category} dish loved by everyone.`}
@@ -229,51 +90,62 @@ const HomePage = () => {
       </Container>
 
       {/* --- "More Than a Service" Section --- */}
-      {/* This replaces your old accordion "HorizontalCard" section */}
-      <Container as="section" className="my-5">
-        <Row className="align-items-center">
-          <Col md={6} className="mb-5 mb-md-0">
-             <Image src={ChefImage} fluid />
+      <Container as="section" className="my-5 py-5">
+        <Row className="align-items-center flex-column-reverse flex-lg-row">
+          <Col xs={12} lg={6} className="mt-5 mt-lg-0 text-center px-4">
+            <Image src={ChefImage} fluid className="w-100 rounded shadow-sm" style={{ maxWidth: '450px' }} />
           </Col>
-          <Col md={6}>
-            <h2 className="fw-bold mb-4">We Are More Than<br/>Multiple Service</h2>
-            <p className="text-muted mb-4">
+          <Col xs={12} lg={6} className="text-center text-lg-start">
+            <h2 className="fw-bold mb-4 fs-2 fs-lg-1">We Are More Than<br className="d-none d-lg-block" />Multiple Service</h2>
+            <p className="text-muted mb-4 lead fs-6 fs-md-5">
               Experience the best of dining with our additional services designed for your convenience and pleasure.
             </p>
-            <Row>
-              <Col sm={6} className="mb-3"><h5>✓ Online Order</h5></Col>
-              <Col sm={6} className="mb-3"><h5>✓ Pre-Reservation</h5></Col>
-              <Col sm={6} className="mb-3"><h5>✓ 24/7 Service</h5></Col>
-              <Col sm={6} className="mb-3"><h5>✓ Super Chefs</h5></Col>
-              <Col sm={6} className="mb-3"><h5>✓ Clean Kitchen</h5></Col>
+            <Row className="text-start justify-content-center justify-content-lg-start px-3 px-sm-0">
+              <Col xs={12} sm={6} className="mb-3">
+                <h5 className="d-flex align-items-center fs-6 fs-sm-5"><span className="text-primary me-2 fw-bold">✓</span> Online Order</h5>
+              </Col>
+              <Col xs={12} sm={6} className="mb-3">
+                <h5 className="d-flex align-items-center fs-6 fs-sm-5"><span className="text-primary me-2 fw-bold">✓</span> Pre-Reservation</h5>
+              </Col>
+              <Col xs={12} sm={6} className="mb-3">
+                <h5 className="d-flex align-items-center fs-6 fs-sm-5"><span className="text-primary me-2 fw-bold">✓</span> 24/7 Service</h5>
+              </Col>
+              <Col xs={12} sm={6} className="mb-3">
+                <h5 className="d-flex align-items-center fs-6 fs-sm-5"><span className="text-primary me-2 fw-bold">✓</span> Super Chefs</h5>
+              </Col>
+              <Col xs={12} sm={6} className="mb-3">
+                <h5 className="d-flex align-items-center fs-6 fs-sm-5"><span className="text-primary me-2 fw-bold">✓</span> Clean Kitchen</h5>
+              </Col>
             </Row>
-            <Button variant="primary" className="mt-3">About Us</Button>
+            <div className="d-grid d-sm-block mt-4 mt-md-5 px-3 px-sm-0">
+              <Button as={Link} to="/about" variant="primary" size="lg" className="px-sm-5 w-100 w-sm-auto">About Us</Button>
+            </div>
           </Col>
         </Row>
       </Container>
 
-      {/* --- NEW: Our Regular Menu Section --- */}
-      <Container as="section" className="my-5 py-5">
-        <h2 className="text-center fw-bold mb-4">Our Regular Menu Pack</h2>
-        
+      {/* --- Regular Menu Section --- */}
+      <Container as="section" className="my-5 py-5 px-3">
+        <h2 className="text-center fw-bold mb-4 fs-2 fs-md-1">Our Regular Menu Pack</h2>
+
         {/* Filter Buttons */}
-        <div className="text-center mb-5">
+        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5 px-2">
           <Button
-            className="filter-button"
+            className="filter-button px-4 py-2 w-100 w-sm-auto"
             variant={activeFilter === 'All' ? 'primary' : 'outline-primary'}
             onClick={() => setActiveFilter('All')}
           >
             All
           </Button>
           <Button
-            className="filter-button"
+            className="filter-button px-4 py-2 w-100 w-sm-auto"
             variant={activeFilter === 'veg' ? 'primary' : 'outline-primary'}
             onClick={() => setActiveFilter('veg')}
           >
             Veg
           </Button>
           <Button
-            className="filter-button"
+            className="filter-button px-4 py-2 w-100 w-sm-auto"
             variant={activeFilter === 'non-veg' ? 'primary' : 'outline-primary'}
             onClick={() => setActiveFilter('non-veg')}
           >
@@ -281,12 +153,12 @@ const HomePage = () => {
           </Button>
         </div>
 
-        {/* Filtered Dish Grid */}
+        {/* Filtered Dishes */}
         <Row>
-          {/* We map over the `filteredDishes` state variable, NOT the original data */}
           {filteredDishes.map((dish, index) => (
             <DishCard
               key={index}
+              id={dish.id || `reg-${index}`}
               image={dish.image}
               name={dish.name}
               description={`A popular ${dish.category} dish loved by everyone.`}
@@ -295,7 +167,6 @@ const HomePage = () => {
           ))}
         </Row>
       </Container>
-
 
       <Footer />
     </>

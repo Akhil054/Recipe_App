@@ -11,29 +11,47 @@
 }
 
 .dish-card-image {
-  padding: 1.5rem 1.5rem 0 1.5rem;
-  max-height: 200px;
-  object-fit: contain;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  padding: 12px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 .dish-card-title {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.25rem;
   color: var(--secondary-color);
+  line-height: 1.3;
 }
 
 .dish-card-description {
   font-size: 0.9rem;
   color: #6c757d;
-  flex-grow: 1; /* Allows the card body to push the price down */
+  flex-grow: 1;
+  /* Allows the card body to push the price down */
+  line-height: 1.5;
 }
 
 .dish-card-price {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--secondary-color);
 }
 
-.dish-card .btn {
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+.dish-card-btn {
+  padding: 8px 20px !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  font-size: 0.9rem !important;
 }
 
+.dish-card .btn {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.dish-card-btn:hover {
+  transform: translateY(-2px);
+}

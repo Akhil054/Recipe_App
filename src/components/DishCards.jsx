@@ -1,38 +1,11 @@
-// // /src/components/DishCard.jsx
-// import React from 'react';
-// import { Card, Button, Col } from 'react-bootstrap';
-// import '../styles/DishCard.css';
-// // Note the updated props to match the new design
-// const DishCard = ({ image, name, description, price }) => {
-//   return (
-//     <Col md={6} lg={3} className="mb-4">
-//       <Card className="dish-card h-100 border-0">
-//         <Card.Img variant="top" src={image} className="dish-card-image" />
-//         <Card.Body className="text-center d-flex flex-column">
-//           <Card.Title className="dish-card-title">{name}</Card.Title>
-//           {/* Placeholder for star ratings */}
-//           <div className="text-warning my-2">⭐⭐⭐</div>
-//           <Card.Text className="dish-card-description">{description}</Card.Text>
-//           <div className="mt-auto d-flex justify-content-between align-items-center px-3">
-//             <span className="dish-card-price">${price}</span>
-//             <Button variant="outline-primary" size="sm" style={{ borderRadius: '15px', padding: '5px 15px' }}>
-//                 Add To Cart
-//             </Button>
-//           </div>
-//         </Card.Body>
-//       </Card>
-//     </Col>
-//   );
-// };
-
-// export default DishCard;
-
 // /src/components/DishCards.jsx
 import React, { useState } from 'react'; // <-- Import useState
 import { Card, Button, Col } from 'react-bootstrap';
+import { useCart } from '../context/CartContext';
 import '../styles/DishCard.css';
 
-const DishCard = ({ image, name, description, price }) => {
+const DishCard = ({ id, image, name, description, price }) => {
+  const { addToCart } = useCart();
   // State to track if the item has been added to the cart
   const [isAdded, setIsAdded] = useState(false);
 
@@ -41,8 +14,8 @@ const DishCard = ({ image, name, description, price }) => {
     // Set the state to 'added'
     setIsAdded(true);
 
-    // In a real app, you would call your cart context function here
-    // e.g., cart.addItem({ name, price, image });
+    // Call cart context function
+    addToCart({ id, name, image, price });
     console.log(`${name} added to cart!`);
 
     // After 2 seconds, revert the button back to its original state
@@ -52,27 +25,26 @@ const DishCard = ({ image, name, description, price }) => {
   };
 
   return (
-    <Col md={6} lg={3} className="mb-4">
-      <Card className="dish-card h-100 border-0">
+    <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
+      <Card className="dish-card h-100 border-0" style={{ width: '100%', maxWidth: '350px' }}>
         <Card.Img variant="top" src={image} className="dish-card-image" />
-        <Card.Body className="text-center d-flex flex-column">
-          <Card.Title className="dish-card-title">{name}</Card.Title>
-          <div className="text-warning my-2">⭐⭐⭐</div>
-          <Card.Text className="dish-card-description">{description}</Card.Text>
-          <div className="mt-auto d-flex justify-content-between align-items-center px-3">
+        <Card.Body className="text-center d-flex flex-column p-4">
+          <Card.Title className="dish-card-title mb-2">{name}</Card.Title>
+          <div className="text-warning mb-3">⭐⭐⭐</div>
+          <Card.Text className="dish-card-description mb-4">{description}</Card.Text>
+          <div className="mt-auto d-flex justify-content-between align-items-center w-100">
             <span className="dish-card-price">${price}</span>
 
             {/* --- UPDATED BUTTON LOGIC --- */}
             <Button
               variant={isAdded ? 'success' : 'outline-primary'}
-              size="sm"
-              style={{ borderRadius: '15px', padding: '5px 15px', minWidth: '110px' }}
+              className="dish-card-btn"
               onClick={handleAddToCart}
               disabled={isAdded} // Disable button when item is added
             >
-              {isAdded ? '✓ Added' : 'Add To Cart'}
+              {isAdded ? '✓ Added' : 'Add'}
             </Button>
-            
+
           </div>
         </Card.Body>
       </Card>

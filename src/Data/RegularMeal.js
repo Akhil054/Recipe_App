@@ -5,8 +5,7 @@ import ChickenTikka from '../assets/ChickenTikka.jpg';
 import MuttonCurry from '../assets/ChickenTikka.jpg';
 // import PaneerMasala from '../assets/PaneerMasala.jpg';
 import DalMakhani from '../assets/DalMakhani.jpg';
-// import PannerTikka from '../assets/PaneerTikka.jpg';
-
+import PannerTikka from '../assets/PannerTikka.jpg';
 const RegularMeal = [
   // --- Non-Vegetarian Dishes (from your data) ---
   {

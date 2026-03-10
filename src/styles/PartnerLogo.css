@@ -1,0 +1,47 @@
+.partner-card {
+  /* Defines the space each card takes in the scroll container */
+  flex: 0 0 160px; /* Small to medium size */
+  margin: 0 15px;
+  background-color: var(--white);
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  text-align: center;
+}
+
+/* Hover effect for the entire card (matching dishcard) */
+.partner-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.partner-logo-image-wrapper {
+  height: 120px;
+  width: 100%;
+  padding: 12px; /* padding mimicking dishcard image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.partner-logo-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain; /* changed to contain for logos instead of cover */
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* On card hover */
+.partner-card:hover .partner-logo-image {
+  transform: scale(1.05);
+}
+
+.partner-logo-name {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--secondary-color, #333);
+}

@@ -1,0 +1,54 @@
+/* Menu Page Custom Styling */
+
+.filter-button {
+  min-width: 100px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  padding: 0.6rem 1.2rem; /* Slightly more padding for better touch targets */
+  font-weight: 500;
+}
+
+.filter-button:hover {
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+}
+
+/* Specific styling for active filter button */
+.filter-button.btn-primary {
+  background-color: var(--bs-primary); /* Ensure it uses Bootstrap's primary color variable */
+  border-color: var(--bs-primary);
+  color: white;
+}
+
+.filter-button.btn-outline-primary {
+  color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  background-color: transparent;
+}
+
+.filter-button.btn-outline-primary:hover {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .filter-button {
+    font-size: 0.9rem; /* Slightly larger font on mobile for readability */
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.75rem; /* More vertical space between buttons */
+  }
+}
+
+/* Optional: Style for the menu title and description */
+.menu-title {
+  font-family: 'Playfair Display', serif; /* Example: use a more elegant font */
+  color: #333;
+}
+
+.menu-description {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}

@@ -4,12 +4,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* --- Define Color Scheme and Variables --- */
+/* 🌶️ ALTERNATIVE THEME: Spicy Sunset (Energetic & Appetizing) 
+   To use this theme, comment out the :root block below and uncomment this one:
 :root {
-  --primary-color: #f9b233; /* The main warm yellow/gold color */
-  --secondary-color: #2c2c2c; /* Dark text color */
-  --background-color: #fefcf7; /* Creamy off-white background */
+  --primary-color: #FF4747; 
+  --bs-primary: #FF4747;    
+  --bs-primary-rgb: 255, 71, 71;
+  --secondary-color: #1A1A1A; 
+  --background-color: #FDFDFD;
   --white: #ffffff;
-  
+}
+*/
+
+/* ✨ ACTIVE THEME: Fresh Organic (Clean & Natural) */
+:root {
+  --primary-color: #00B862; 
+  --bs-primary: #00B862;    
+  --bs-primary-rgb: 0, 184, 98;
+  --secondary-color: #2d3436; 
+  --background-color: #F8F9FA; 
+  --white: #ffffff;
+}
+
+/* Overriding extra Bootstrap utility classes to respect our theme */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+.text-primary {
+  color: var(--primary-color) !important;
+  fill: var(--primary-color) !important;
 }
 
 /* --- Global Styles --- */
